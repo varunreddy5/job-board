@@ -65,6 +65,11 @@ gem 'devise'
 gem 'bulma-rails'
 gem 'simple_form'
 gem 'sidekiq'
+gem 'carrierwave', '~> 0.11.2'
+gem 'mini_magick', '~> 4.9', '>= 4.9.2'
+gem 'stripe', '~> 4.5'
+# gem 'trix', '~> 0.11.1' # not worlking for rails>5.2
+gem 'trix-rails', '~> 2.0'
 group :development, :test do
   gem 'better_errors'
   gem 'guard'
