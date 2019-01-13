@@ -1,0 +1,41 @@
+<%= simple_form_for(@job, :html => { multipart: true}) do |f| %>
+  <%= f.input :title, required: true, placeholder: "Eg: Frontend Developer" %>
+  <%= f.input :apply_url, required: true %>
+
+  <div class="row">
+    <div class="col-md-3">
+      <%= f.input :job_type, label: "Job Type", collection: Job::JOB_TYPES, include_blank: 'Select a Job Type', required: true %>
+    </div>
+    <div class="col-md-6 offset-md-1">
+      <%= f.input :location, required: true, hint: 'Examples: "San Francisco, CA", "Seattle", "Anywhere"' %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 offset-md-4">
+      <%= f.input :remote_ok, as: :boolean, checked_value: true, wrapper: false, unchecked_value: false, label: false%>
+      <span class="remote-checkbox">Work can be done remotely</span>
+      <label><i class="fa fa-wifi"></i></label>
+    </div>
+  </div>
+
+  <%= f.input :description, required: true, input_html: {rows: 4} %>
+
+  <div class="row">
+    <div class="col-md-5">
+      <%= f.input :job_author, required: true, label: "Company" %>
+    </div>
+    <div class="col-md-5">
+      <%= f.input :url, required: true, label: "Company Website", placeholder: "http://www.company.com" %>
+    </div>
+  </div>
+
+  <%= f.input :avatar, as: :file, class: "job-avatar", input_html: { class: "mb-4" }, required: false, label: "Logo Image" %>
+  <%= render('payment') %>
+
+  <hr/>
+
+  <%= f.button :submit, class: "btn btn-primary my-3"%>
+
+
+<% end %>

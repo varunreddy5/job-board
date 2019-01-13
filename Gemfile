@@ -60,14 +60,15 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
+gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 gem 'devise'
-gem 'bulma-rails'
-gem 'simple_form'
+gem 'simple_form', '~> 4.1.0'
 gem 'sidekiq'
 gem 'carrierwave', '~> 0.11.2'
 gem 'mini_magick', '~> 4.9', '>= 4.9.2'
 gem 'stripe', '~> 4.5'
+gem 'bootstrap', '~> 4.2.1'
+gem 'figaro', '~> 1.1', '>= 1.1.1'
 # gem 'trix', '~> 0.11.1' # not worlking for rails>5.2
 gem 'trix-rails', '~> 2.0'
 group :development, :test do

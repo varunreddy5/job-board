@@ -1,5 +1,43 @@
-@import "bulma";
-@import "functions";
+@import "bootstrap";
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro);
+
+body{
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+// Form
+.remote-checkbox{
+  margin-left: 1.2em;
+}
+input::-webkit-input-placeholder {
+color: #D3D3D3 !important;
+}
+input:-moz-placeholder { /* Firefox 18- */
+color: #D3D3D3 !important;
+}
+
+input::-moz-placeholder {  /* Firefox 19+ */
+color: #D3D3D3 !important;
+}
+
+input:-ms-input-placeholder {
+color: #D3D3D3 !important;
+}
+
+
+
+.navbar{
+  background-color: #FFF;
+  -webkit-box-shadow: 0 8px 4px -6px #999;
+  -moz-box-shadow: 0 8px 4px -6px #999;
+  box-shadow: 0 5px 8px -6px #999;
+  .navbar-brand{
+    text-transform: uppercase;
+    font-size: 1.3em;
+    color: #e3714d;
+    letter-spacing: 2px;
+  }
+}
 
 .notification {
   border-radius: 0;
