@@ -27,7 +27,7 @@ color: #D3D3D3 !important;
 
 
 .navbar{
-  background-color: #FFF;
+  // background-color: #FFF;
   -webkit-box-shadow: 0 8px 4px -6px #999;
   -moz-box-shadow: 0 8px 4px -6px #999;
   box-shadow: 0 5px 8px -6px #999;
@@ -38,6 +38,48 @@ color: #D3D3D3 !important;
     letter-spacing: 2px;
   }
 }
+
+// body
+.index-jobs{
+  .categories{
+    background-color: #f8f9fa;
+  }
+  .jobs-section{
+    background-color: #FFF;
+    .job-author{
+      font-size: 1.1em;
+      margin-bottom: 0.3em;
+      text-decoration: none;
+    }
+  }
+
+}
+
+.job-type{
+  display: inline-block;
+  padding: 0.3em 0.8em;
+  font-size: 0.9em;
+  border-radius: 5px;
+  color: #FFF;
+  margin-bottom: 0.5em;
+}
+.internship{
+  background-color: #e3714d;
+}
+.freelance{
+  background-color: #9068be;
+}
+.full-time{
+  background-color: #4ABDAC;
+}
+.part-time{
+  background-color: #7A9D96;
+}
+.contract{
+  background-color: #DCAE1D;
+}
+
+
 
 .notification {
   border-radius: 0;

@@ -14,19 +14,8 @@
   </head>
 
   <body class="<%= yield (:body_class) %>">
-    <% if flash[:notice] %>
-      <div class="notification is-success global-notification">
-        <p class="notice"><%= notice %></p>
-      </div>
-    <% end %>
 
-    <% if flash[:alert] %>
-    <div class="notification is-danger global-notification">
-      <p class="alert"><%= alert %></p>
-    </div>
-    <% end %>
-
-    <nav class="navbar navbar-expand-lg navbar-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container">
         <a class="navbar-brand" href="<%= root_path %>">Job Board</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,10 +38,23 @@
       </div>
     </nav>
 
+    <% if flash[:notice] %>
+      <div class="notification is-success global-notification">
+        <p class="notice"><%= notice %></p>
+      </div>
+    <% end %>
+
+    <% if flash[:alert] %>
+    <div class="notification is-danger global-notification">
+      <p class="alert"><%= alert %></p>
+    </div>
+    <% end %>
+
+
 
 
   <section class="section">
-    <div class="container">
+    <div class="container-fluid">
       <%= yield %>
     </div>
   </section>

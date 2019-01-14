@@ -1,34 +1,27 @@
-<div class="row">
-  <div class="col-md-12">
-    <div class="jobs-index">
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th scope="col">Title</th>
-            <th scope="col">Description</th>
-            <th scope="col">URL</th>
-            <th scope="col">Job Type</th>
-            <th scope="col">Location</th>
-            <th scope="col">Job Author</th>
-            <th scope="col">Remote OK</th>
-            <th scope="col">Apply URL</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @jobs.each do |job| %>
-            <tr>
-              <td><%= job.title %></td>
-              <td><%= job.description %></td>
-              <td><%= job.url %></td>
-              <td><%= job.job_type %></td>
-              <td><%= job.location %></td>
-              <td><%= job.job_author %></td>
-              <td><%= job.remote_ok ? 'Yes' : 'No' %></td>
-              <td><%= job.apply_url %></td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
+<div class="index-jobs">
+  <div class="row">
+    <div class="col-md-2 categories">
+      
+    </div>
+    <div class="col-md-10 jobs-section pt-5 pb-2">
+      <% @jobs.each do |job| %>
+        <div class="row">
+          <div class="col-md-2 text-right">
+            <%= image_tag(job.avatar.thumb.url) %>
+          </div>
+          <div class="col-md-7">
+            <h3><%= job.title %></h3>
+            <%= link_to(job.job_author, job.url, class: "job-author") %>
+
+            <p><%= job.description.truncate(170) %></p>
+          </div>
+          <div class="col-md-3 text-center">
+            <p class=" job-type <%= job.job_type.downcase! %>"><%= job.job_type.capitalize %></p>
+            <p><%= job.location %></p>
+          </div>
+        </div>
+        <hr width="85%">
+      <% end %>
     </div>
   </div>
 </div>
