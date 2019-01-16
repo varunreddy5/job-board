@@ -31,13 +31,26 @@ color: #D3D3D3 !important;
   -webkit-box-shadow: 0 8px 4px -6px #999;
   -moz-box-shadow: 0 8px 4px -6px #999;
   box-shadow: 0 5px 8px -6px #999;
-  .navbar-brand{
+  .navbar-brand,
+  .navbar-brand:hover{
     text-transform: uppercase;
     font-size: 1.3em;
     color: #e3714d;
     letter-spacing: 2px;
   }
+  a.nav-link.new-job,
+  a.nav-link.new-job:hover{
+    color: #FFF;
+    padding: 0.5em 1.5em;
+    margin: 0.2em 1em 0 0;
+    font-size: 0.9em;
+    border-radius: 10px;
+    // color: #FFF;
+    background-color: #e3714d;
+  }
+
 }
+
 
 // body
 .index-jobs{
@@ -54,37 +67,46 @@ color: #D3D3D3 !important;
   }
 
 }
+.jobs-section{
+  .job-type{
+    display: inline-block;
+    padding: 0.3em 0.8em;
+    font-size: 0.9em;
+    border-radius: 5px;
+    color: #FFF;
+    margin-bottom: 0.5em;
+  }
+  .internship{
+    background-color: #e3714d;
+  }
+  .freelance{
+    background-color: #9068be;
+  }
+  .full-time{
+    background-color: #4ABDAC;
+  }
+  .part-time{
+    background-color: #7A9D96;
+  }
+  .contract{
+    background-color: #DCAE1D;
+  }
+}
 
-.job-type{
-  display: inline-block;
-  padding: 0.3em 0.8em;
-  font-size: 0.9em;
-  border-radius: 5px;
-  color: #FFF;
-  margin-bottom: 0.5em;
+.categories{
+  .job-type-nav{
+    display: inline-block;
+    padding: 0.3em 1.3em;
+    font-size: 1em;
+    border-radius: 8px;
+    // color: #CCC;
+    margin-bottom: 0.7em;
+  }
 }
-.internship{
-  background-color: #e3714d;
-}
-.freelance{
-  background-color: #9068be;
-}
-.full-time{
-  background-color: #4ABDAC;
-}
-.part-time{
-  background-color: #7A9D96;
-}
-.contract{
-  background-color: #DCAE1D;
-}
-
-
 
 .notification {
-  border-radius: 0;
-}
-
-.notification:not(:last-child) {
   margin-bottom: 0;
+  p{
+    margin: 0;
+  }
 }

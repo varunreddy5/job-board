@@ -4,7 +4,7 @@
 
   <div class="row">
     <div class="col-md-3">
-      <%= f.input :job_type, label: "Job Type", collection: Job::JOB_TYPES, include_blank: 'Select a Job Type', required: true } %>
+      <%= f.input :job_type, label: "Job Type", collection: Job::JOB_TYPES, include_blank: 'Select a Job Type',required: true %>
     </div>
     <div class="col-md-6 offset-md-1">
       <%= f.input :location, required: true, hint: 'Examples: "San Francisco, CA", "Seattle", "Anywhere"' %>
@@ -19,7 +19,7 @@
     </div>
   </div>
 
-  <%= f.input :description, required: true, input_html: {rows: 4} %>
+  <%= f.input :description, required: true, input_html: { rows: 4 } %>
 
   <div class="row">
     <div class="col-md-5">

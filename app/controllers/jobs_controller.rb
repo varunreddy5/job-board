@@ -17,6 +17,7 @@ class JobsController < ApplicationController
 
   def index
     @jobs = Job.order("created_at desc")
+    @filter_jobs = Job.all.map{ |job| [job.title, job.id]}
   end
 
   def show
