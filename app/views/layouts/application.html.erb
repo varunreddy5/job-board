@@ -9,8 +9,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> -->
     <%= javascript_include_tag 'application', "https://js.stripe.com/v2/", "https://js.stripe.com/v3/", 'data-turbolinks-track': 'reload' %>
-    <%= tag :meta, name: "stripe-public-key", content: Figaro.env.stripe_publishable_key %>
+    <%= tag :meta, name: "stripe-public-key", content: Rails.application.secrets.stripe_publishable_key %>
   </head>
 
   <body class="<%= yield (:body_class) %>">
@@ -65,6 +66,8 @@
   </section>
 
 
+  <!-- <script type="text/javascript" src = "https://js.stripe.com/v2/"> -->
 
+  <!-- </script> -->
   </body>
 </html>
