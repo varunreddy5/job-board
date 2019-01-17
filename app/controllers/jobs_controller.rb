@@ -2,26 +2,29 @@ class JobsController < ApplicationController
   # before_action :select_job, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
 
+
   def new
     @job = current_user.jobs.build
   end
 
   def create
     @job = current_user.jobs.build(job_params)
-    token  = params[:stripeToken]
+    token = params[:stripeToken]
     job_type = params[:job_type]
     job_title = params[:title]
     card_brand = params[:user][:card_brand]
     card_exp_month = params[:user][:card_exp_month]
-    card_exp_year = params[:user][:card_exp_year]
+    card_exp_year  = params[:user][:card_exp_year]
     card_last4 = params[:user][:card_last4]
+
     charge = Stripe::Charge.create(
-      :amount => 300,
+      :amount => 30000,
       :currency => "usd",
       :description => job_type,
       :statement_descriptor => job_title,
       :source => token
     )
+
     current_user.stripe_id = charge.id
     current_user.card_brand = card_brand
     current_user.card_exp_month = card_exp_month
@@ -33,6 +36,9 @@ class JobsController < ApplicationController
     else
       render('new')
     end
+  rescue Stripe::CardError => e
+    flash[:error] = e.message
+    render action: :new
   end
 
   def index

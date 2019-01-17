@@ -1,10 +1,7 @@
-// # Place all the behaviors and hooks related to the matching controller here.
-// # All this logic will automatically be available in application.js.
-// # You can use CoffeeScript in this file: http://coffeescript.org/
 document.addEventListener("turbolinks:load", function() {
-  var public_key = document.querySelector("meta[name='stripe-public-key']").content;
-  var stripe = Stripe(public_key);
-  var elements = stripe.elements();
+  const public_key = document.querySelector("meta[name='stripe-public-key']").content;
+  const stripe = Stripe(public_key);
+  const elements = stripe.elements();
 
   var style = {
     base: {
@@ -16,9 +13,10 @@ document.addEventListener("turbolinks:load", function() {
 
   // Create an instance of the card Element.
   var card = elements.create('card', {style: style});
-  console.log(card.mount("#card-element"));
+
   // Add an instance of the card Element into the `card-element` <div>.
   card.mount('#card-element');
+
   card.addEventListener('change', function(event) {
     var displayError = document.getElementById('card-errors');
     if (event.error) {
@@ -43,28 +41,31 @@ document.addEventListener("turbolinks:load", function() {
       }
     });
   });
-  function stripeTokenHandler(token) {
-    // Insert the token ID into the form so it gets submitted to the server
-    var form = document.getElementById('payment-form');
-    var hiddenInput = document.createElement('input');
-    hiddenInput.setAttribute('type', 'hidden');
-    hiddenInput.setAttribute('name', 'stripeToken');
-    hiddenInput.setAttribute('value', token.id);
-    form.appendChild(hiddenInput);
 
-    ["brand", "exp_month", "exp_year", "last4"]. forEach(function(field){
-      addFieldToForm(form, token, field);
-    });
 
-    // Submit the form
-    form.submit();
-  }
-  function addFieldToForm(form, token, field){
-    var hiddenInput = document.createElement('input');
-    hiddenInput.setAttribute('type', 'input');
-    hiddenInput.setAttribute('type', "user[card_"+field+"]");
-    hiddenInput.setAttribute('type', token.card[field]);
-    form.appendChild(hiddenInput);
-  }
 
 });
+
+function stripeTokenHandler(token) {
+// Insert the token ID into the form so it gets submitted to the server
+  var form = document.getElementById('new_job');
+  var hiddenInput = document.createElement('input');
+  hiddenInput.setAttribute('type', 'hidden');
+  hiddenInput.setAttribute('name', 'stripeToken');
+  hiddenInput.setAttribute('value', token.id);
+  form.appendChild(hiddenInput);
+
+  ["brand", "exp_month", "exp_year", "last4"].forEach(function(field) {
+       addFieldToForm(form, token, field);
+    });
+  // Submit the form
+  form.submit();
+}
+
+function addFieldToForm(form, token, field) {
+  var hiddenInput = document.createElement('input');
+  hiddenInput.setAttribute('type', 'hidden');
+  hiddenInput.setAttribute('name', "user[card_" + field + "]");
+  hiddenInput.setAttribute('value', token.card[field]);
+  form.appendChild(hiddenInput);
+}

@@ -1,6 +1,6 @@
 
 <!-- If the job is created by making the payment then this form should not be displayed -->
-  <form action="/charge" method="post" id="payment-form">
+
     <div class="form-row">
       <label for="card-element">
         Credit or debit card
@@ -22,13 +22,12 @@
           <th>Expiration year</th>
         </thead>
         <tbody>
-          <td>current_user.card_brand</td>
-          <td>current_user.card_last4</td>
-          <td>current_user.card_exp_month</td>
-          <td>current_user.card_exp_year</td>
+          <td><%= current_user.card_brand %></td>
+          <td><%= current_user.card_last4 %></td>
+          <td><%= current_user.card_exp_month %></td>
+          <td><%= current_user.card_exp_year %></td>
         </tbody>
 
       </table>
     <% end %>
     <!-- <button class="btn btn-info">Submit Payment</button> -->
-  </form>
