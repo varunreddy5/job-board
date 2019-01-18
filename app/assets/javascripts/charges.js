@@ -3,11 +3,15 @@ document.addEventListener("turbolinks:load", function() {
   const stripe = Stripe(public_key);
   const elements = stripe.elements();
 
+
+
+
   var style = {
     base: {
       // Add your base input styles here. For example:
       fontSize: '16px',
       color: "#32325d",
+      // fontFamily: '"Source Sans Pro", sans-serif'
     }
   };
 
@@ -19,9 +23,14 @@ document.addEventListener("turbolinks:load", function() {
 
   card.addEventListener('change', function(event) {
     var displayError = document.getElementById('card-errors');
+
     if (event.error) {
+      displayError.classList.add("alert", "alert-danger", "my-3");
       displayError.textContent = event.error.message;
     } else {
+      if (displayError.classList.contains("alert", "alert-danger")){
+        displayError.classList.remove("alert", "alert-danger", "my-3");
+      }
       displayError.textContent = '';
     }
   });

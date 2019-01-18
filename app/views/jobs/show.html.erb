@@ -1,0 +1,47 @@
+<div class="container">
+
+
+<div class="row mt-5 mb-4">
+
+  <div class="col-md-5 jobs-show-top">
+    <h3><%= @job.title %></h3>
+    <span class="fa fa-building-o"></span><p class="job-author"><%= @job.job_author %></p>
+    <span class="fa fa-map-marker"></span><p class="job-location"><%= @job.location %></p>
+  </div>
+  <div class="col-md-2 offset-md-5 mt-1 text-center">
+    <p class=" job-type-show job-type <%= @job.job_type.downcase! %>"><%= @job.job_type.capitalize %></p>
+  </div>
+</div>
+<div class="row my-2">
+  <div class="col-md-10 jobs-show-url">
+    <h5 class="job-url-title">Job URL:</h5>
+    <%= link_to(@job.apply_url, @job.apply_url, class: "job-url") %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12 jobs-show-description">
+    <h5>Job Description:</h5>
+    <p class="job-description"><%= @job.description %></p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-10 jobs-show-website">
+    <h5 class="job-website-title">Company Website:</h5>
+    <%= link_to(@job.url, @job.url, class: "job-website-url") %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-10 my-3 remote-ok">
+    <h5 >Remote OK: </h5>
+    <p><%= @job.remote_ok ? 'Yes' : 'No' %></p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-10 jobs-show-buttons">
+    <%= link_to("Back", jobs_path, class: "btn btn-outline-info") %>
+    <% if @job.user_id == current_user.id %>
+      <%= link_to("Edit Job", edit_job_path(@job), class: "btn btn-outline-warning ml-2") %>
+    <% end %>
+  </div>
+</div>
+</div>

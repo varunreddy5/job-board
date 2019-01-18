@@ -1,33 +1,42 @@
-
+<% if !@job.persisted? %>
 <!-- If the job is created by making the payment then this form should not be displayed -->
-
-    <div class="form-row">
-      <label for="card-element">
-        Credit or debit card
-      </label>
-      <div id="card-element">
-        <!-- A Stripe Element will be inserted here. -->
+  <hr/>
+  <h4>Payment</h4>
+  <div class="row d-flex justify-content-center my-4">
+    <div class="col-md-10 text-center">
+      <div class="alert alert-info">
+        All jobs cost $300 for 30 days
       </div>
-
-      <!-- Used to display Element errors. -->
-      <div id="card-errors" role="alert"></div>
     </div>
-    <% if current_user.stripe_id.present? %>
-      <h5>Previously used card</h5>
-      <table class="table">
-        <thead>
-          <th>Card Brand</th>
-          <th>Last 4 digits</th>
-          <th>Expiration Month</th>
-          <th>Expiration year</th>
-        </thead>
-        <tbody>
-          <td><%= current_user.card_brand %></td>
-          <td><%= current_user.card_last4 %></td>
-          <td><%= current_user.card_exp_month %></td>
-          <td><%= current_user.card_exp_year %></td>
-        </tbody>
+  </div>
+  <div class="form-row mb-4">
+    <label for="card-element">
+      <b>Enter Credit or debit card</b>
+    </label>
+    <div id="card-element" class="mt-3 col-md-6">
+      <!-- A Stripe Element will be inserted here. -->
+    </div>
 
-      </table>
-    <% end %>
+    <!-- Used to display Element errors. -->
+    <div id="card-errors" role="alert"></div>
+  </div>
+  <% if current_user.stripe_id.present? %>
+    <h5>Previously used card</h5>
+    <table class="table">
+      <thead  class="table-light">
+        <th>Card Brand</th>
+        <th>Last 4 digits</th>
+        <th>Expiration Month</th>
+        <th>Expiration year</th>
+      </thead>
+      <tbody>
+        <td><%= current_user.card_brand %></td>
+        <td><%= current_user.card_last4 %></td>
+        <td><%= current_user.card_exp_month %></td>
+        <td><%= current_user.card_exp_year %></td>
+      </tbody>
+
+    </table>
+  <% end %>
     <!-- <button class="btn btn-info">Submit Payment</button> -->
+<% end %>

@@ -13,7 +13,7 @@
 
   <div class="row">
     <div class="col-md-6 offset-md-4">
-      <%= f.input :remote_ok, as: :boolean, checked_value: true, wrapper: false, unchecked_value: false, label: false%>
+      <%= f.input :remote_ok, as: :boolean, wrapper: false, label: false%>
       <span class="remote-checkbox">Work can be done remotely</span>
       <label><i class="fa fa-wifi"></i></label>
     </div>
@@ -31,11 +31,12 @@
   </div>
 
   <%= f.input :avatar, as: :file, input_html: { class: "mb-4" }, required: false, label: "Logo Image" %>
+
   <%= render('payment') %>
 
   <hr/>
 
-  <%= f.button :submit, class: "btn btn-primary my-3"%>
+  <button type="submit" class="btn btn-primary my-3">Submit</button>
 
 
 <% end %>

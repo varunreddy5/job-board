@@ -1,7 +1,5 @@
 class JobsController < ApplicationController
-  # before_action :select_job, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
-
 
   def new
     @job = current_user.jobs.build
@@ -42,11 +40,15 @@ class JobsController < ApplicationController
   end
 
   def index
-    @jobs = Job.order("created_at desc")
-    @filter_jobs = Job.all.map{ |job| [job.title, job.id]}
+    if(params.has_key?(:job_type))
+      @jobs = Job.where(:job_type => params[:job_type]).order("created_at desc")
+    else
+      @jobs = Job.all.order("created_at desc")
+    end
   end
 
   def show
+    @job = Job.find(params[:id])
   end
 
   def edit
@@ -56,7 +58,7 @@ class JobsController < ApplicationController
   def update
     @job = Job.find(params[:id])
     if @job.update_attributes(job_params)
-      redirect_to(jobs_path)
+      redirect_to(job_path(@job))
     else
       render('edit')
     end
