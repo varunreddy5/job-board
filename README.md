@@ -3,9 +3,9 @@
 ### Description
 The basis of this application is a job board where anyone who is looking to get hired can login and apply to the available positions. If you are a user or a company looking to hire can sign up and post a job for a nominal fee.
 
-For the payment, I used Stripe API to initialize a charge when the job is posted
+For the payment, I used Stripe API to initialize a charge when the job is posted.
 
-The mail models that are utilized in this project are `User` model and `Job` model
+The main models that are utilized in this project are `User` model and `Job` model.
 
 #### Jobs
 
