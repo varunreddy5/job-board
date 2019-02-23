@@ -1,5 +1,5 @@
 Rails.configuration.stripe = {
-  :publishable_key => Rails.application.secrets.stripe_public_key,
+  :publishable_key => Rails.application.secrets.stripe_publishable_key,
   :secret_key      => Rails.application.secrets.secret_key
 }
 
