@@ -6,6 +6,8 @@ class JobsController < ApplicationController
   end
 
   def create
+
+    
     @job = current_user.jobs.build(job_params)
     token = params[:stripeToken]
     job_type = params[:job_type]

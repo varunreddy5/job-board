@@ -69,7 +69,10 @@ gem 'mini_magick', '~> 4.9', '>= 4.9.2'
 gem 'stripe', '~> 4.5'
 gem 'bootstrap', '~> 4.2.1'
 gem 'rails_12factor', group: :production
-# gem 'figaro', '~> 1.1', '>= 1.1.1'
+# gem 'aws-sdk', '~> 3.0', '>= 3.0.1'
+gem "fog-aws"
+# gem 'fog', require: 'fog/aws'
+gem 'figaro', '~> 1.1', '>= 1.1.1'
 # gem 'trix', '~> 0.11.1' # not worlking for rails>5.2
 gem 'trix-rails', '~> 2.0'
 group :development, :test do
